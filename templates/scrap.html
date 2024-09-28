@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Job Listings</title>
+    <!-- Bootstrap CSS for responsiveness -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Courier New','Roboto', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .job-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: scale(1.02);
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+       .siteheader{
+        background-color: aquamarine;
+        text-align: center;
+       }
+        .company-name {
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-weight: 900;
+            color: #343a40;
+        }
+
+        @media (max-width: 768px) {
+            .job-title {
+                font-size: 1.2rem;
+            }
+
+            .company-name {
+                font-size: 1rem;
+            }
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            text-align: center;
+            background: #343a40;
+            color: #fff;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Latest Job Listings</h1>
+        </div>
+
+
+        <div class="bdjobs">
+            <h2 class="siteheader">From BDJobs</h2>
+        <div class="row">
+            {%for job, company in jobs_data %}
+            <div class="col-md-6">
+                <div class="job-card">
+                    <h3 class="job-title">{{ job }}</h3>
+                    <p class="company-name">at {{ company }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Powered by <a href="https://jobs.bdjobs.com" target="_blank">BDJobs</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
